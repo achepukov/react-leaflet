@@ -34,4 +34,4 @@ describe('layer', () => {
     expect(map.removeLayer).toBeCalledTimes(1)
     expect(map.removeLayer).toBeCalledWith(element.instance)
   })
-})
+});

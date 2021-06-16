@@ -29,6 +29,7 @@ describe('element', () => {
     expect(updateElementMock).toBeCalledTimes(0)
 
     rerender({ test: false })
+    expect(createElementMock).toBeCalledTimes(1)
     expect(updateElementMock).toBeCalledTimes(1)
     expect(updateElementMock).toBeCalledWith(
       instance,
@@ -37,6 +38,7 @@ describe('element', () => {
     )
 
     rerender({ test: false })
+    expect(createElementMock).toBeCalledTimes(1)
     expect(updateElementMock).toBeCalledTimes(2)
     expect(updateElementMock).toBeCalledWith(
       instance,
