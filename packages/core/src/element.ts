@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from 'react'
+import { MutableRefObject, useEffect, useRef, useMemo } from 'react'
 
 import { LeafletContextInterface } from './context'
 
@@ -33,9 +33,9 @@ export function createElementHook<E, P, C = any>(
     props: P,
     context: LeafletContextInterface,
   ): ReturnType<ElementHook<E, P>> {
-    const elementRef = useRef<LeafletElement<E, C>>(
-      createElement(props, context),
-    )
+    const element = useMemo(() => createElement(props, context), [])
+
+    const elementRef = useRef<LeafletElement<E, C>>(element)
     const propsRef = useRef<P>(props)
     const { instance } = elementRef.current
 
